@@ -22,7 +22,10 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    setPosts: (_state, action) => action.payload,
+    setPosts: (state, action) => ({
+      ...state,
+      items: action.payload,
+    }),
   },
   extraReducers: builder => {
     builder.addCase(init.pending, state => {
